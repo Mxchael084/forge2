@@ -13,12 +13,17 @@ minecraft {
     mappings channel: mapping_channel, version: mapping_version
     runs {
         configureEach {
-            workingDir project.file('run')
             systemProperty 'forge.logging.console.level', 'info'
-            mods { rupture_reborn { source sourceSets.main } }
+            mods {
+                rupture_reborn {
+                    source sourceSets.main
+                }
+            }
         }
         register('client')
-        register('server') { args '--nogui' }
+        register('server') {
+            args '--nogui'
+        }
     }
 }
 
